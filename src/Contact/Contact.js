@@ -96,7 +96,7 @@ class Contact extends React.Component {
                             <Col>
                                 <Button 
                                     className="custom-width" 
-                                    variant="primary" 
+                                    variant="dark" 
                                     type="submit" 
                                     onClick={(e)=> this.handleSubmit(e)}
                                 >
