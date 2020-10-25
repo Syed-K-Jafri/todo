@@ -1,4 +1,4 @@
-import { ADD_TASK } from './types';
+import { ADD_TASK, COMPLETE_TASK } from './types';
 
 const initialState = { 
     todos : []
@@ -15,6 +15,8 @@ let reducer = (state = initialState, action) => {
         case ADD_TASK:
             let todo = { title: action.title, completed: false, id: getId(state) };
             return {...state, todos: [...state.todos, todo]};
+        case COMPLETE_TASK:
+            return {...state, todos: state.todos.map(x => { return x.id === action.id ? {...x, ['completed']: !x.completed}: x } )};
         default:
             return state;
     }

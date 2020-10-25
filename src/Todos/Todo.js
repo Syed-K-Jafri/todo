@@ -26,6 +26,11 @@ class Todo extends React.Component {
         this.setState({ title: ''});
     }
   
+    
+    handleComplete = (id) => {
+        this.props.completeTodo(id);
+    }
+
     render() {
         return (
             <div className='container'>
@@ -71,7 +76,7 @@ class Todo extends React.Component {
                                                 {
                                                     this.props.data.map(elem => (
                                                         <React.Fragment key={elem.id}>
-                                                            <Card border={elem.completed ? 'success': 'primary'}>
+                                                            <Card className="mt-2" border={elem.completed ? 'success': 'primary'}>
                                                                 <Card.Body>
                                                                     <Row>
                                                                         <Col xs={1}>
@@ -89,6 +94,9 @@ class Todo extends React.Component {
                                                                     </Row>
                                                                 </Card.Body>
                                                                 <Card.Footer style={{ float: 'right', textAlign: 'right' }}>
+                                                                    { elem.completed ? <Card.Text style={{ texAlign: 'left', float: 'left' }}>
+                                                                        Completed
+                                                                    </Card.Text>: null}
                                                                     <Button variant="outline-primary m-1" onClick={()=>this.handleEdit(elem)}>Edit</Button>
                                                                     <Button variant="outline-primary m-1" onClick={()=>this.handleDelete(elem.id)}>Delete</Button>
                                                                 </Card.Footer>
