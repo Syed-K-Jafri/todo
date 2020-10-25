@@ -27,7 +27,7 @@ class Contact extends React.Component {
     return (
       <div className="container">
         <Row className='custom-comp-pad'>
-          <Col md={{ span: 8, offset: 2 }}>
+          <Col md={{ span: 6, offset: 3 }}>
             <Card className="shadow">
                 <Card.Body>
                     <Form onSubmit={(e) => this.handleSubmit()}>

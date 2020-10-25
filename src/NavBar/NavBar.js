@@ -12,9 +12,9 @@ const NavBar = ({ history }) => {
     return (
         <Navbar bg="success" variant="dark">
             <Navbar.Brand href="/todo">Syed-K-Jafri</Navbar.Brand>
-            <Nav className="mr-auto">
-                <Nav.Link href="/todo" onClick={(e) => routeChange(e, '/todo')}>ToDo</Nav.Link>
-                <Nav.Link href="/contact" onClick={(e) => routeChange(e, '/contact')}>Contact</Nav.Link>
+            <Nav className="custom-width" style={{ justifyContent: 'flex-end'}}>
+                <Nav.Link href="/todo" onClick={(e) => routeChange(e, '/todo')}><b>ToDo</b></Nav.Link>
+                <Nav.Link href="/contact" onClick={(e) => routeChange(e, '/contact')}><b>Contact</b></Nav.Link>
             </Nav>
         </Navbar>
     );
