@@ -11,7 +11,7 @@ const NavBar = ({ history }) => {
 
     return (
         <Navbar bg="success" variant="dark">
-            <Navbar.Brand href="/todo">Syed-K-Jafri</Navbar.Brand>
+            <Navbar.Brand href="/todo">Task Management App</Navbar.Brand>
             <Nav className="custom-width" style={{ justifyContent: 'flex-end'}}>
                 <Nav.Link href="/todo" onClick={(e) => routeChange(e, '/todo')}><b>ToDo</b></Nav.Link>
                 <Nav.Link href="/contact" onClick={(e) => routeChange(e, '/contact')}><b>Contact</b></Nav.Link>

@@ -50,6 +50,17 @@ class Todo extends React.Component {
             <div className='container'>
                 <Row className='custom-comp-pad'>
                     <Col md={{ span: 8, offset: 2 }} >
+                        <Card className='shadow mb-2' bg='success' style={{ color: 'white' }}>
+                            <Card.Body>
+                                <Row>
+                                    <Col>
+                                        <Card.Text className="text-center">
+                                            <b>To Do LIST</b>
+                                        </Card.Text>
+                                    </Col>
+                                </Row>
+                            </Card.Body>
+                        </Card>
                         <Card className='shadow'>
                             <Card.Body>
                                 <Form onSubmit={(e)=> this.createOrEditTodo(e)}>
@@ -60,7 +71,6 @@ class Todo extends React.Component {
                                                     type="text" 
                                                     name="title"
                                                     required
-                                                    placeholder="task..." 
                                                     value={this.state.title}
                                                     onChange={(e)=> this.setState({ title: e.target.value })}
                                                     className={ this.state.invalid ? 'invalid' : '' }
@@ -70,7 +80,7 @@ class Todo extends React.Component {
                                         </Col>
                                         <Col md={3}>
                                             <Button 
-                                                variant='outline-primary' 
+                                                variant='outline-dark' 
                                                 className='custom-width' 
                                                 type="submit" 
                                                 onClick={(e) => this.createOrEditTodo(e) }>
@@ -90,7 +100,7 @@ class Todo extends React.Component {
                                                 {
                                                     this.props.data.map(elem => (
                                                         <React.Fragment key={elem.id}>
-                                                            <Card className="mt-2" border={elem.completed ? 'success': 'primary'}>
+                                                            <Card className="mt-2" border={elem.completed ? 'success': 'dark'}>
                                                                 <Card.Body>
                                                                     <Row>
                                                                         <Col xs={1}>
@@ -111,8 +121,8 @@ class Todo extends React.Component {
                                                                     { elem.completed ? <Card.Text style={{ texAlign: 'left', float: 'left' }}>
                                                                         Completed
                                                                     </Card.Text>: null}
-                                                                    <Button variant="outline-primary m-1" onClick={()=>this.handleEdit(elem)}>Edit</Button>
-                                                                    <Button variant="outline-primary m-1" onClick={()=>this.handleDelete(elem.id)}>Delete</Button>
+                                                                    <Button variant="outline-dark m-1" onClick={()=>this.handleEdit(elem)}>Edit</Button>
+                                                                    <Button variant="outline-dark m-1" onClick={()=>this.handleDelete(elem.id)}>Delete</Button>
                                                                 </Card.Footer>
                                                             </Card>
                                                         </React.Fragment>
@@ -127,10 +137,10 @@ class Todo extends React.Component {
                         <Row>
                           <Col>
                                 <Card>
-                                    <Card.Header>
-                                        <h6>SHOW:</h6>
+                                    <Card.Header style={{ textAlign: 'center', float: 'center'}}>
+                                        <h6>DISPLAY</h6>
                                     </Card.Header>
-                                    <Card.Body>
+                                    <Card.Body style={{ textAlign: 'center', float: 'center'}}>
                                         <span className={ this.props.selectedFilter && this.props.selectedFilter == 'SHOW_ALL' ? `badge badge-secondary filter-btn filter-active` : 'badge badge-secondary filter-btn' } onClick={(e)=> this.props.setTodoListFilter('SHOW_ALL')}>ALL</span>
                                         <span className={this.props.selectedFilter && this.props.selectedFilter == 'SHOW_ACTIVE' ? `badge badge-secondary filter-btn filter-active` : 'badge badge-secondary filter-btn'} onClick={(e)=> this.props.setTodoListFilter('SHOW_ACTIVE')}>ACTIVE</span>
                                         <span className={this.props.selectedFilter && this.props.selectedFilter == 'SHOW_COMPLETED' ? `badge badge-secondary filter-btn filter-active` : 'badge badge-secondary filter-btn'} onClick={(e)=> this.props.setTodoListFilter('SHOW_COMPLETED')}>COMPLETED</span>
