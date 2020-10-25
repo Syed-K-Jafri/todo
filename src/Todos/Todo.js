@@ -1,5 +1,7 @@
 import React from 'react';
 import { Row, Col, Form, Button, Card } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import * as actions from '../store/todoaction';
 
 class Todo extends React.Component {
 
@@ -13,6 +15,15 @@ class Todo extends React.Component {
 
     createOrEditTodo = async (e) => {
         e.preventDefault();   
+     
+        let { title } = this.state;
+        if (!title && title.trim().length <= 0) {
+            this.setState({ invalid: true });
+            return;
+        }
+        await this.props.addTodo(title);
+        
+        this.setState({ title: ''});
     }
   
     render() {
@@ -58,4 +69,4 @@ class Todo extends React.Component {
     }
 };
 
-export default Todo;
+export default connect(null, actions)(Todo);
