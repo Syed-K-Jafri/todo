@@ -9,23 +9,33 @@ class Todo extends React.Component {
         super(props);
         this.state = {
             title: '',
-            invalid: false
+            invalid: false,
+            edit: null
         }
     }
 
     createOrEditTodo = async (e) => {
         e.preventDefault();   
      
-        let { title } = this.state;
+        let { title, edit } = this.state;
         if (!title && title.trim().length <= 0) {
             this.setState({ invalid: true });
             return;
         }
-        await this.props.addTodo(title);
+
+        if (edit) {
+            await this.props.editTodo(edit.id, title);
+        } else {
+            await this.props.addTodo(title);
+        }
         
-        this.setState({ title: ''});
+        this.setState({ title: '', edit: null });
+
     }
   
+    handleEdit = (elem) => {
+        this.setState({ edit: elem, title: elem.title });
+    }
     
     handleComplete = (id) => {
         this.props.completeTodo(id);
@@ -64,7 +74,7 @@ class Todo extends React.Component {
                                                 className='custom-width' 
                                                 type="submit" 
                                                 onClick={(e) => this.createOrEditTodo(e) }>
-                                                    { 'ADD' }
+                                                    { this.state.edit ? 'SAVE' : 'ADD' }
                                             </Button>
                                         </Col>
                                     </Form.Row>
