@@ -30,6 +30,10 @@ class Todo extends React.Component {
     handleComplete = (id) => {
         this.props.completeTodo(id);
     }
+    
+    handleDelete = (id) => {
+        this.props.deleteTodo(id);
+    }
 
     render() {
         return (

@@ -1,4 +1,4 @@
-import { ADD_TASK, COMPLETE_TASK } from './types';
+import { ADD_TASK, COMPLETE_TASK, DELETE_TASK } from './types';
 
 export const addTodo = title => {
     return {
@@ -10,6 +10,13 @@ export const addTodo = title => {
 export const completeTodo = (id) => {
     return {
         type: COMPLETE_TASK,
+        id: id
+    }
+}
+
+export const deleteTodo = (id) => {
+    return {
+        type: DELETE_TASK,
         id: id
     }
 }
