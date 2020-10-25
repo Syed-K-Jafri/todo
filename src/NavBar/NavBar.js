@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
+import { withRouter } from 'react-router-dom';
 
 const NavBar = ({ history }) => {
 
@@ -19,4 +20,4 @@ const NavBar = ({ history }) => {
     );
 };
 
-export default NavBar;
+export default withRouter(NavBar);
