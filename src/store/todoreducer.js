@@ -13,7 +13,7 @@ function getId(state) {
 let reducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_TASK:
-            let todo = [{ title: action.title, completed: false, id: getId(state) }];
+            let todo = { title: action.title, completed: false, id: getId(state) };
             return {...state, todos: [...state.todos, todo]};
         default:
             return state;

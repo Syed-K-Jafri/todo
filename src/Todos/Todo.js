@@ -62,6 +62,46 @@ class Todo extends React.Component {
                                 </Form>
                             </Card.Body>
                         </Card>
+                        <Row>
+                            <Col>
+                                <Card className="shadow">
+                                    <Card.Body>
+                                        <Row>
+                                            <Col>
+                                                {
+                                                    this.props.data.map(elem => (
+                                                        <React.Fragment key={elem.id}>
+                                                            <Card border={elem.completed ? 'success': 'primary'}>
+                                                                <Card.Body>
+                                                                    <Row>
+                                                                        <Col xs={1}>
+                                                                            <input type="checkbox"
+                                                                                defaultChecked={elem.completed}
+                                                                                required={true}
+                                                                                onClick={() => this.handleComplete(elem.id)}
+                                                                            />
+                                                                        </Col>
+                                                                        <Col xs={11}>
+                                                                            <Card.Text>
+                                                                                {elem.title}  
+                                                                            </Card.Text>
+                                                                        </Col>
+                                                                    </Row>
+                                                                </Card.Body>
+                                                                <Card.Footer style={{ float: 'right', textAlign: 'right' }}>
+                                                                    <Button variant="outline-primary m-1" onClick={()=>this.handleEdit(elem)}>Edit</Button>
+                                                                    <Button variant="outline-primary m-1" onClick={()=>this.handleDelete(elem.id)}>Delete</Button>
+                                                                </Card.Footer>
+                                                            </Card>
+                                                        </React.Fragment>
+                                                    ))
+                                                }
+                                            </Col>
+                                        </Row>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                        </Row>
                     </Col>
                 </Row>
             </div>
@@ -69,4 +109,11 @@ class Todo extends React.Component {
     }
 };
 
-export default connect(null, actions)(Todo);
+
+const mapStateToProps = state => {
+    return {
+        data: state.data.todos,
+    }
+}
+
+export default connect(mapStateToProps, actions)(Todo);
