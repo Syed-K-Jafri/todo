@@ -1,4 +1,4 @@
-import { ADD_TASK, COMPLETE_TASK, DELETE_TASK, EDIT_TASK } from './types';
+import { ADD_TASK, DELETE_TASK, COMPLETE_TASK, EDIT_TASK, SHOW_ACTIVE, SHOW_ALL, SHOW_COMPLETED, SET_TODOLIST_FILTER } from './types';
 
 export const addTodo = title => {
     return {
@@ -27,4 +27,15 @@ export const editTodo = (id, title) => {
         title: title,
         id: id
     }
+}
+
+export const setTodoListFilter = filter => ({
+    type: SET_TODOLIST_FILTER,
+    filter
+})
+
+export const todolistFilters = {
+    SHOW_ALL: SHOW_ALL,
+    SHOW_COMPLETED: SHOW_COMPLETED,
+    SHOW_ACTIVE: SHOW_ACTIVE
 };
