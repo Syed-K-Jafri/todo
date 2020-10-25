@@ -124,6 +124,20 @@ class Todo extends React.Component {
                                 </Card>
                             </Col>
                         </Row>
+                        <Row>
+                          <Col>
+                                <Card>
+                                    <Card.Header>
+                                        <h6>SHOW:</h6>
+                                    </Card.Header>
+                                    <Card.Body>
+                                        <span className={ this.props.selectedFilter && this.props.selectedFilter == 'SHOW_ALL' ? `badge badge-secondary filter-btn filter-active` : 'badge badge-secondary filter-btn' } onClick={(e)=> this.props.setTodoListFilter('SHOW_ALL')}>ALL</span>
+                                        <span className={this.props.selectedFilter && this.props.selectedFilter == 'SHOW_ACTIVE' ? `badge badge-secondary filter-btn filter-active` : 'badge badge-secondary filter-btn'} onClick={(e)=> this.props.setTodoListFilter('SHOW_ACTIVE')}>ACTIVE</span>
+                                        <span className={this.props.selectedFilter && this.props.selectedFilter == 'SHOW_COMPLETED' ? `badge badge-secondary filter-btn filter-active` : 'badge badge-secondary filter-btn'} onClick={(e)=> this.props.setTodoListFilter('SHOW_COMPLETED')}>COMPLETED</span>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                        </Row>
                     </Col>
                 </Row>
             </div>
@@ -135,6 +149,7 @@ class Todo extends React.Component {
 const mapStateToProps = state => {
     return {
         data: state.data.todos,
+        selectedFilter: state.data.filter
     }
 }
 

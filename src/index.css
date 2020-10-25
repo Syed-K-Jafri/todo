@@ -24,3 +24,15 @@ code {
   padding-top: 100px;
   padding-bottom: 100px;
 }
+
+
+.filter-btn {
+  background: #d4d7da !important;
+  padding: 8px !important;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.filter-active {
+  background: #28a745 !important;  
+}
