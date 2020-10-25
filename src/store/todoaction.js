@@ -39,3 +39,17 @@ export const todolistFilters = {
     SHOW_COMPLETED: SHOW_COMPLETED,
     SHOW_ACTIVE: SHOW_ACTIVE
 };
+
+export const getTodoList = (todos, filter) => {
+    switch(filter) {
+        case todolistFilters.SHOW_ALL:
+            return todos;
+        case todolistFilters.SHOW_ACTIVE:
+            return todos.filter(t => !t.completed);
+        case todolistFilters.SHOW_COMPLETED:
+            return todos.filter(t => t.completed);
+        default: 
+            throw new Error('unknown filter' + filter);            
+    }
+  }
+  

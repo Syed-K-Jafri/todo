@@ -148,7 +148,7 @@ class Todo extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        data: state.data.todos,
+        data: actions.getTodoList(state.data.todos, state.data.filter),
         selectedFilter: state.data.filter
     }
 }
