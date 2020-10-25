@@ -39,7 +39,6 @@ class Contact extends React.Component {
                                 type="text"
                                 name="firstName"
                                 required 
-                                placeholder="Enter First Name"
                                 value={this.state.firstName}
                                 onChange={(e) => this.handleTextChange(e.target)}
                                 />
@@ -54,7 +53,6 @@ class Contact extends React.Component {
                                 type="text"
                                 name="lastName" 
                                 required
-                                placeholder="Enter Last Name"
                                 value={this.state.lastName}
                                 onChange={(e) => this.handleTextChange(e.target)}
                                 />
@@ -69,7 +67,6 @@ class Contact extends React.Component {
                                 type="email"
                                 name="email" 
                                 required
-                                placeholder="example@gmail.com"
                                 value={this.state.email}
                                 onChange={(e) => this.handleTextChange(e.target)}
                                 />
@@ -85,7 +82,6 @@ class Contact extends React.Component {
                                 rows={3}
                                 required
                                 name="comments" 
-                                placeholder="Comments..."
                                 value={this.state.comments}
                                 onChange={(e) => this.handleTextChange(e.target)}
                                 />
