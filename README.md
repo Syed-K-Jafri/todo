@@ -1,5 +1,18 @@
 # todo
 
+Syed Jafri
+
+This project is a task management react app based off of Create React App. It can be used as todo list to add or delete tasks/items.
+
+Main functionality is the ability it gives users to add and delete items from the todo list.
+
+Technologies utlizied to develop this app is reactjs, redux, react bootstrap and react router
+
+Ideas for future improvement
+
+1. More functionality
+2. Better UI design
+3. Add effeciency 
 
 
 Getting Started with Create React App
